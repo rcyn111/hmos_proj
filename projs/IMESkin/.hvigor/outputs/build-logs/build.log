@@ -1,0 +1,927 @@
+[2026-06-08T18:55:33.812] [DEBUG] debug-file - env: nodejsVersion=v18.20.1
+[2026-06-08T18:55:33.817] [DEBUG] debug-file - begin to create new key files
+[2026-06-08T18:55:33.812] [DEBUG] debug-file - env: hvigor-config.json5 content = { modelVersion: '6.1.0', dependencies: {} }
+[2026-06-08T18:55:33.825] [DEBUG] debug-file - env: daemon=true
+[2026-06-08T18:55:34.007] [DEBUG] debug-file - hvigor java daemon: Starting java daemon. jvmXmxValue=512m, jarPath=/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/lib/hvigor-java-daemon.jar
+[2026-06-08T18:55:34.007] [DEBUG] debug-file - hvigor java daemon: Read cache file, 
+    port=undefined, pid=undefined, sessionId exists=false
+[2026-06-08T18:55:34.007] [DEBUG] debug-file - hvigor java daemon: Killing existing java daemon by grep
+[2026-06-08T18:55:34.061] [DEBUG] debug-file - hvigor java daemon: No valid cache info, will start new daemon
+[2026-06-08T18:55:34.070] [DEBUG] debug-file - java daemon started at port 45050 pid 9166
+[2026-06-08T18:55:34.089] [DEBUG] debug-file - session manager: set active socket. socketId=1DINlNJTH3rBNK_vAAAB
+[2026-06-08T18:55:34.259] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T18:55:34.261] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2026-06-08T18:55:34.261] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2026-06-08T18:55:34.261] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2026-06-08T18:55:34.263] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2026-06-08T18:55:34.264] [DEBUG] debug-file - Workers' log level updated to INFO
+[2026-06-08T18:55:34.267] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-06-08T18:55:34.267] [DEBUG] debug-file - Since current hvigor version 6.24.2 differs from last hvigor version 
+      undefined, delete file-cache.json and task-cache.json.
+[2026-06-08T18:55:34.267] [DEBUG] debug-file - Cache service initialization finished in 1 ms 
+[2026-06-08T18:55:34.268] [DEBUG] debug-file - hvigorfile, resolving /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/hvigorfile.ts
+[2026-06-08T18:55:34.908] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-06-08T18:55:34.908] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-06-08T18:55:34.908] [DEBUG] debug-file - Starting plugin build process
+[2026-06-08T18:55:34.909] [DEBUG] debug-file - App plugin prepare start...
+[2026-06-08T18:55:34.909] [DEBUG] debug-file - App plugin prepare end...
+[2026-06-08T18:55:34.909] [DEBUG] debug-file - App plugin creating...
+[2026-06-08T18:55:34.987] [DEBUG] debug-file - hvigor build process will be closed with an error.
+[2026-06-08T18:55:34.995] [ERROR] debug-file - [31m00303038 Configuration Error
+Error Message: Schema validate failed, at file: /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5
+
+* Try the following:
+  > Please check the following fields. 
+ {
+  instancePath: 'app',
+  keyword: 'enum',
+  params: {
+    allowedValues: [
+      'signingConfigs',
+      'products',
+      'buildModeSet',
+      'multiProjects',
+      'capabilities'
+    ]
+  },
+  message: 'must be equal to one of the allowed values',
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:2:11'
+} 
+{
+  instancePath: 'app',
+  keyword: 'propertyNames',
+  params: { propertyName: 'compileSdkVersion' },
+  message: 'property name must be valid',
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:2:11'
+} 
+{
+  instancePath: 'app',
+  keyword: 'enum',
+  params: {
+    allowedValues: [
+      'signingConfigs',
+      'products',
+      'buildModeSet',
+      'multiProjects',
+      'capabilities'
+    ]
+  },
+  message: 'must be equal to one of the allowed values',
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:2:11'
+} 
+{
+  instancePath: 'app',
+  keyword: 'propertyNames',
+  params: { propertyName: 'compatibleSdkVersion' },
+  message: 'property name must be valid',
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:2:11'
+} 
+{
+  instancePath: 'app.products[0]',
+  keyword: 'required',
+  params: { missingProperty: 'compatibleSdkVersion' },
+  message: "must have required property 'compatibleSdkVersion'",
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:7:8'
+} 
+
+[39m
+
+[31m* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+
+[2026-06-08T18:55:34.995] [DEBUG] debug-file - ERROR: stacktrace = AdaptorError: [31m00303038 Configuration Error
+Error Message: Schema validate failed, at file: /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5
+
+* Try the following:
+  > Please check the following fields. 
+ {
+  instancePath: 'app',
+  keyword: 'enum',
+  params: {
+    allowedValues: [
+      'signingConfigs',
+      'products',
+      'buildModeSet',
+      'multiProjects',
+      'capabilities'
+    ]
+  },
+  message: 'must be equal to one of the allowed values',
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:2:11'
+} 
+{
+  instancePath: 'app',
+  keyword: 'propertyNames',
+  params: { propertyName: 'compileSdkVersion' },
+  message: 'property name must be valid',
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:2:11'
+} 
+{
+  instancePath: 'app',
+  keyword: 'enum',
+  params: {
+    allowedValues: [
+      'signingConfigs',
+      'products',
+      'buildModeSet',
+      'multiProjects',
+      'capabilities'
+    ]
+  },
+  message: 'must be equal to one of the allowed values',
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:2:11'
+} 
+{
+  instancePath: 'app',
+  keyword: 'propertyNames',
+  params: { propertyName: 'compatibleSdkVersion' },
+  message: 'property name must be valid',
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:2:11'
+} 
+{
+  instancePath: 'app.products[0]',
+  keyword: 'required',
+  params: { missingProperty: 'compatibleSdkVersion' },
+  message: "must have required property 'compatibleSdkVersion'",
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:7:8'
+} 
+
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at ValidateUtil.doSchemaCheck (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/utils/validate/validate-util.js:1:8177)
+    at ValidateUtil.submitSchemaCheckWork (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/utils/validate/validate-util.js:1:7013)
+    at ProjectModelImpl.projectBuildProfileCheck (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/core-project-model-impl.js:1:9382)
+    at new CoreProjectModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/core-project-model-impl.js:1:2677)
+    at new ProjectModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/project-model-impl.js:1:596)
+    at new AppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/app-plugin.js:1:514)
+    at StageInitializationStrategy.createAppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js:1:949)
+    at AppPluginBuilder.createPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js:1:1610)
+    at AppPluginBuilder.build (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/abstract-plugin-builder.js:1:756)
+[2026-06-08T18:55:34.995] [ERROR] debug-file - AdaptorError: [31m00303038 Configuration Error
+Error Message: Schema validate failed, at file: /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5
+
+* Try the following:
+  > Please check the following fields. 
+ {
+  instancePath: 'app',
+  keyword: 'enum',
+  params: {
+    allowedValues: [
+      'signingConfigs',
+      'products',
+      'buildModeSet',
+      'multiProjects',
+      'capabilities'
+    ]
+  },
+  message: 'must be equal to one of the allowed values',
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:2:11'
+} 
+{
+  instancePath: 'app',
+  keyword: 'propertyNames',
+  params: { propertyName: 'compileSdkVersion' },
+  message: 'property name must be valid',
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:2:11'
+} 
+{
+  instancePath: 'app',
+  keyword: 'enum',
+  params: {
+    allowedValues: [
+      'signingConfigs',
+      'products',
+      'buildModeSet',
+      'multiProjects',
+      'capabilities'
+    ]
+  },
+  message: 'must be equal to one of the allowed values',
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:2:11'
+} 
+{
+  instancePath: 'app',
+  keyword: 'propertyNames',
+  params: { propertyName: 'compatibleSdkVersion' },
+  message: 'property name must be valid',
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:2:11'
+} 
+{
+  instancePath: 'app.products[0]',
+  keyword: 'required',
+  params: { missingProperty: 'compatibleSdkVersion' },
+  message: "must have required property 'compatibleSdkVersion'",
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:7:8'
+} 
+
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at ValidateUtil.doSchemaCheck (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/utils/validate/validate-util.js:1:8177)
+    at ValidateUtil.submitSchemaCheckWork (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/utils/validate/validate-util.js:1:7013)
+    at ProjectModelImpl.projectBuildProfileCheck (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/core-project-model-impl.js:1:9382)
+    at new CoreProjectModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/core-project-model-impl.js:1:2677)
+    at new ProjectModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/project-model-impl.js:1:596)
+    at new AppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/app-plugin.js:1:514)
+    at StageInitializationStrategy.createAppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js:1:949)
+    at AppPluginBuilder.createPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js:1:1610)
+    at AppPluginBuilder.build (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/abstract-plugin-builder.js:1:756)
+[2026-06-08T18:55:34.996] [ERROR] debug-file - BUILD FAILED in 732 ms 
+[2026-06-08T18:55:34.998] [DEBUG] debug-file - Cleanup worker 0.
+[2026-06-08T18:55:34.998] [DEBUG] debug-file - Worker 0 has been cleaned up.
+[2026-06-08T18:55:34.998] [DEBUG] debug-file - Current idle worker size: 1.
+[2026-06-08T18:55:34.998] [DEBUG] debug-file - Current resident worker size: 2.
+[2026-06-08T18:55:34.998] [DEBUG] debug-file - Cleanup worker 1.
+[2026-06-08T18:55:34.998] [DEBUG] debug-file - Worker 1 has been cleaned up.
+[2026-06-08T18:55:34.998] [DEBUG] debug-file - Current idle worker size: 0.
+[2026-06-08T18:55:34.998] [DEBUG] debug-file - Current resident worker size: 2.
+[2026-06-08T18:55:35.001] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-06-08T18:55:35.003] [DEBUG] debug-file - worker[1] exits with exit code 1.
+[2026-06-08T18:55:35.003] [DEBUG] debug-file - worker[0] exits with exit code 1.
+[2026-06-08T18:55:35.005] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T18:55:35.005] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T18:55:35.005] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T18:55:35.006] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:12:35.015] [DEBUG] debug-file - session manager: set active socket. socketId=ikC4Rsb8lXDKuXORAAAD
+[2026-06-08T19:12:35.017] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:12:35.019] [DEBUG] debug-file - Workers' log level updated to INFO
+[2026-06-08T19:12:35.022] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-06-08T19:12:35.022] [DEBUG] debug-file - Since current hvigor version 6.24.2 differs from last hvigor version 
+      undefined, delete file-cache.json and task-cache.json.
+[2026-06-08T19:12:35.023] [DEBUG] debug-file - Cache service initialization finished in 2 ms 
+[2026-06-08T19:12:35.024] [DEBUG] debug-file - hvigorfile, resolving /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/hvigorfile.ts
+[2026-06-08T19:12:35.029] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-06-08T19:12:35.029] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-06-08T19:12:35.029] [DEBUG] debug-file - Starting plugin build process
+[2026-06-08T19:12:35.029] [DEBUG] debug-file - App plugin prepare start...
+[2026-06-08T19:12:35.029] [DEBUG] debug-file - App plugin prepare end...
+[2026-06-08T19:12:35.029] [DEBUG] debug-file - App plugin creating...
+[2026-06-08T19:12:35.034] [DEBUG] debug-file - hvigor build process will be closed with an error.
+[2026-06-08T19:12:35.035] [ERROR] debug-file - [31m00303024 Configuration Error
+Error Message: The project structure and configuration need to be upgraded before use.
+
+* Try the following:
+  > Use the migration tool to update the project structure and configuration with Deveco Studio, or refer to the guide to manually update the project structure and configuration.
+[39m
+
+[31m* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+
+[2026-06-08T19:12:35.035] [DEBUG] debug-file - ERROR: stacktrace = AdaptorError: [31m00303024 Configuration Error
+Error Message: The project structure and configuration need to be upgraded before use.
+
+* Try the following:
+  > Use the migration tool to update the project structure and configuration with Deveco Studio, or refer to the guide to manually update the project structure and configuration.
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at ValidateUtil.modelVersionCheck (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/utils/validate/validate-util.js:1:3745)
+    at ProjectModelImpl.projectStatusCheck (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/core-project-model-impl.js:1:6062)
+    at new CoreProjectModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/core-project-model-impl.js:1:2893)
+    at new ProjectModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/project-model-impl.js:1:596)
+    at new AppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/app-plugin.js:1:514)
+    at StageInitializationStrategy.createAppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js:1:949)
+    at AppPluginBuilder.createPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js:1:1610)
+    at AppPluginBuilder.build (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/abstract-plugin-builder.js:1:756)
+    at PluginFactory.getAppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js:1:481)
+[2026-06-08T19:12:35.035] [ERROR] debug-file - AdaptorError: [31m00303024 Configuration Error
+Error Message: The project structure and configuration need to be upgraded before use.
+
+* Try the following:
+  > Use the migration tool to update the project structure and configuration with Deveco Studio, or refer to the guide to manually update the project structure and configuration.
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at ValidateUtil.modelVersionCheck (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/utils/validate/validate-util.js:1:3745)
+    at ProjectModelImpl.projectStatusCheck (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/core-project-model-impl.js:1:6062)
+    at new CoreProjectModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/core-project-model-impl.js:1:2893)
+    at new ProjectModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/project-model-impl.js:1:596)
+    at new AppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/app-plugin.js:1:514)
+    at StageInitializationStrategy.createAppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js:1:949)
+    at AppPluginBuilder.createPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js:1:1610)
+    at AppPluginBuilder.build (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/abstract-plugin-builder.js:1:756)
+    at PluginFactory.getAppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js:1:481)
+[2026-06-08T19:12:35.035] [ERROR] debug-file - BUILD FAILED in 16 ms 
+[2026-06-08T19:12:35.037] [DEBUG] debug-file - There's no busy workers and idle workers need cleanup.
+[2026-06-08T19:12:35.037] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-06-08T19:12:35.041] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T19:12:35.041] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T19:12:35.041] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:12:35.041] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:13:40.762] [DEBUG] debug-file - session manager: set active socket. socketId=OKgfwpGiQvYUCoWTAAAF
+[2026-06-08T19:13:40.763] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:13:40.764] [DEBUG] debug-file - Workers' log level updated to INFO
+[2026-06-08T19:13:40.765] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-06-08T19:13:40.765] [DEBUG] debug-file - Since current hvigor version 6.24.2 differs from last hvigor version 
+      undefined, delete file-cache.json and task-cache.json.
+[2026-06-08T19:13:40.766] [DEBUG] debug-file - Cache service initialization finished in 1 ms 
+[2026-06-08T19:13:40.766] [DEBUG] debug-file - hvigorfile, resolving /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/hvigorfile.ts
+[2026-06-08T19:13:40.769] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-06-08T19:13:40.769] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-06-08T19:13:40.770] [DEBUG] debug-file - Starting plugin build process
+[2026-06-08T19:13:40.770] [DEBUG] debug-file - App plugin prepare start...
+[2026-06-08T19:13:40.770] [DEBUG] debug-file - App plugin prepare end...
+[2026-06-08T19:13:40.770] [DEBUG] debug-file - App plugin creating...
+[2026-06-08T19:13:40.775] [DEBUG] debug-file - hvigor build process will be closed with an error.
+[2026-06-08T19:13:40.776] [ERROR] debug-file - [31m00304056 Not Found
+Error Message: Can not find build config file build-profile.json5 at 'entry'. /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/entry/build-profile.json5
+
+* Try the following:
+  > Check if build-profile.json5 exists at: /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/entry/build-profile.json5
+[39m
+
+[31m* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+
+[2026-06-08T19:13:40.776] [DEBUG] debug-file - ERROR: stacktrace = AdaptorError: [31m00304056 Not Found
+Error Message: Can not find build config file build-profile.json5 at 'entry'. /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/entry/build-profile.json5
+
+* Try the following:
+  > Check if build-profile.json5 exists at: /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/entry/build-profile.json5
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at ModuleModelImpl.checkModuleBuildProfile (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/module/core-module-model-impl.js:1:8955)
+    at new CoreModuleModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/module/core-module-model-impl.js:1:2536)
+    at new ModuleModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/module/module-model-impl.js:1:1296)
+    at /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/project-model-impl.js:1:826
+    at Map.forEach (<anonymous>)
+    at ProjectModelImpl.initSubModules (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/project-model-impl.js:1:789)
+    at new AppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/app-plugin.js:1:564)
+    at StageInitializationStrategy.createAppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js:1:949)
+    at AppPluginBuilder.createPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js:1:1610)
+[2026-06-08T19:13:40.776] [ERROR] debug-file - AdaptorError: [31m00304056 Not Found
+Error Message: Can not find build config file build-profile.json5 at 'entry'. /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/entry/build-profile.json5
+
+* Try the following:
+  > Check if build-profile.json5 exists at: /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/entry/build-profile.json5
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at ModuleModelImpl.checkModuleBuildProfile (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/module/core-module-model-impl.js:1:8955)
+    at new CoreModuleModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/module/core-module-model-impl.js:1:2536)
+    at new ModuleModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/module/module-model-impl.js:1:1296)
+    at /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/project-model-impl.js:1:826
+    at Map.forEach (<anonymous>)
+    at ProjectModelImpl.initSubModules (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/project-model-impl.js:1:789)
+    at new AppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/app-plugin.js:1:564)
+    at StageInitializationStrategy.createAppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js:1:949)
+    at AppPluginBuilder.createPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js:1:1610)
+[2026-06-08T19:13:40.777] [ERROR] debug-file - BUILD FAILED in 13 ms 
+[2026-06-08T19:13:40.779] [DEBUG] debug-file - There's no busy workers and idle workers need cleanup.
+[2026-06-08T19:13:40.779] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-06-08T19:13:40.783] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T19:13:40.783] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T19:13:40.783] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:13:40.784] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:14:32.129] [DEBUG] debug-file - session manager: set active socket. socketId=ErM4VnS6i199v2qsAAAH
+[2026-06-08T19:14:32.130] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:14:32.131] [DEBUG] debug-file - Workers' log level updated to INFO
+[2026-06-08T19:14:32.132] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-06-08T19:14:32.132] [DEBUG] debug-file - Since current hvigor version 6.24.2 differs from last hvigor version 
+      undefined, delete file-cache.json and task-cache.json.
+[2026-06-08T19:14:32.133] [DEBUG] debug-file - Cache service initialization finished in 1 ms 
+[2026-06-08T19:14:32.133] [DEBUG] debug-file - hvigorfile, resolving /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/hvigorfile.ts
+[2026-06-08T19:14:32.137] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-06-08T19:14:32.137] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-06-08T19:14:32.137] [DEBUG] debug-file - Starting plugin build process
+[2026-06-08T19:14:32.137] [DEBUG] debug-file - App plugin prepare start...
+[2026-06-08T19:14:32.137] [DEBUG] debug-file - App plugin prepare end...
+[2026-06-08T19:14:32.137] [DEBUG] debug-file - App plugin creating...
+[2026-06-08T19:14:32.140] [DEBUG] debug-file - App plugin register hook start...
+[2026-06-08T19:14:32.141] [DEBUG] debug-file - App plugin register hook end...
+[2026-06-08T19:14:32.141] [DEBUG] debug-file - Plugin build process completed
+[2026-06-08T19:14:32.141] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-06-08T19:14:32.141] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-06-08T19:14:32.141] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-06-08T19:14:32.141] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-06-08T19:14:32.142] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-06-08T19:14:32.143] [DEBUG] debug-file - not found resModel json file in : /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/entry/src/ohosTest/module.json5
+[2026-06-08T19:14:32.149] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-06-08T19:14:32.150] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2026-06-08T19:14:32.152] [DEBUG] debug-file - hvigor build process will be closed with an error.
+[2026-06-08T19:14:32.153] [ERROR] debug-file - [31m00303168 Configuration Error
+Error Message: SDK component missing.
+
+* Try the following:
+  > Please verify the integrity of your SDK.
+  > Please update the SDK at the download link below.
+  > More info: https://developer.huawei.com/consumer/cn/download
+[39m
+
+[31m* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+
+[2026-06-08T19:14:32.153] [DEBUG] debug-file - ERROR: stacktrace = AdaptorError: [31m00303168 Configuration Error
+Error Message: SDK component missing.
+
+* Try the following:
+  > Please verify the integrity of your SDK.
+  > Please update the SDK at the download link below.
+  > More info: https://developer.huawei.com/consumer/cn/download
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at HmosSdkLoader.getHmosSdkComponents (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/sdk/hmos-sdk-loader.js:1:1895)
+    at HosSdkInfo.setup (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/sdk/info/hos-sdk-info.js:1:1537)
+    at ProjectTaskService.setup (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/tasks/service/project-task-service.js:1:2525)
+    at ProjectImpl.<anonymous> (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js:1:2361)
+    at ProjectImpl.executeAfterBindSystemPluginsHook (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/hvigor-node-impl/default-node-impl.js:1:5577)
+    at evaluateNodeVigorFile (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:9617)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async evalProject (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:3608)
+    at async configuration (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:2352)
+[2026-06-08T19:14:32.153] [ERROR] debug-file - AdaptorError: [31m00303168 Configuration Error
+Error Message: SDK component missing.
+
+* Try the following:
+  > Please verify the integrity of your SDK.
+  > Please update the SDK at the download link below.
+  > More info: https://developer.huawei.com/consumer/cn/download
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at HmosSdkLoader.getHmosSdkComponents (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/sdk/hmos-sdk-loader.js:1:1895)
+    at HosSdkInfo.setup (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/sdk/info/hos-sdk-info.js:1:1537)
+    at ProjectTaskService.setup (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/tasks/service/project-task-service.js:1:2525)
+    at ProjectImpl.<anonymous> (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js:1:2361)
+    at ProjectImpl.executeAfterBindSystemPluginsHook (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/hvigor-node-impl/default-node-impl.js:1:5577)
+    at evaluateNodeVigorFile (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:9617)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async evalProject (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:3608)
+    at async configuration (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:2352)
+[2026-06-08T19:14:32.153] [ERROR] debug-file - BUILD FAILED in 23 ms 
+[2026-06-08T19:14:32.155] [DEBUG] debug-file - There's no busy workers and idle workers need cleanup.
+[2026-06-08T19:14:32.155] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-06-08T19:14:32.158] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T19:14:32.158] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T19:14:32.158] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:14:32.158] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:19:35.216] [DEBUG] debug-file - session manager: set active socket. socketId=iZQQx34gII0ILLIJAAAJ
+[2026-06-08T19:19:35.218] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:19:35.221] [DEBUG] debug-file - Workers' log level updated to INFO
+[2026-06-08T19:19:35.223] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-06-08T19:19:35.224] [DEBUG] debug-file - Since current hvigor version 6.24.2 differs from last hvigor version 
+      undefined, delete file-cache.json and task-cache.json.
+[2026-06-08T19:19:35.225] [DEBUG] debug-file - Cache service initialization finished in 2 ms 
+[2026-06-08T19:19:35.225] [DEBUG] debug-file - hvigorfile, resolving /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/hvigorfile.ts
+[2026-06-08T19:19:35.232] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-06-08T19:19:35.232] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-06-08T19:19:35.233] [DEBUG] debug-file - Starting plugin build process
+[2026-06-08T19:19:35.233] [DEBUG] debug-file - App plugin prepare start...
+[2026-06-08T19:19:35.233] [DEBUG] debug-file - App plugin prepare end...
+[2026-06-08T19:19:35.233] [DEBUG] debug-file - App plugin creating...
+[2026-06-08T19:19:35.237] [DEBUG] debug-file - hvigor build process will be closed with an error.
+[2026-06-08T19:19:35.238] [ERROR] debug-file - [31m00303038 Configuration Error
+Error Message: Schema validate failed, at file: /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5
+
+* Try the following:
+  > Please check the following fields. 
+ {
+  instancePath: 'app.products[0]',
+  keyword: 'required',
+  params: { missingProperty: 'compatibleSdkVersion' },
+  message: "must have required property 'compatibleSdkVersion'",
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:5:8'
+} 
+
+[39m
+
+[31m* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+
+[2026-06-08T19:19:35.238] [DEBUG] debug-file - ERROR: stacktrace = AdaptorError: [31m00303038 Configuration Error
+Error Message: Schema validate failed, at file: /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5
+
+* Try the following:
+  > Please check the following fields. 
+ {
+  instancePath: 'app.products[0]',
+  keyword: 'required',
+  params: { missingProperty: 'compatibleSdkVersion' },
+  message: "must have required property 'compatibleSdkVersion'",
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:5:8'
+} 
+
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at ValidateUtil.doSchemaCheck (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/utils/validate/validate-util.js:1:8177)
+    at ValidateUtil.submitSchemaCheckWork (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/utils/validate/validate-util.js:1:7013)
+    at ProjectModelImpl.projectBuildProfileCheck (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/core-project-model-impl.js:1:9382)
+    at new CoreProjectModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/core-project-model-impl.js:1:2677)
+    at new ProjectModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/project-model-impl.js:1:596)
+    at new AppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/app-plugin.js:1:514)
+    at StageInitializationStrategy.createAppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js:1:949)
+    at AppPluginBuilder.createPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js:1:1610)
+    at AppPluginBuilder.build (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/abstract-plugin-builder.js:1:756)
+[2026-06-08T19:19:35.239] [ERROR] debug-file - AdaptorError: [31m00303038 Configuration Error
+Error Message: Schema validate failed, at file: /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5
+
+* Try the following:
+  > Please check the following fields. 
+ {
+  instancePath: 'app.products[0]',
+  keyword: 'required',
+  params: { missingProperty: 'compatibleSdkVersion' },
+  message: "must have required property 'compatibleSdkVersion'",
+  location: '/Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5:5:8'
+} 
+
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at ValidateUtil.doSchemaCheck (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/utils/validate/validate-util.js:1:8177)
+    at ValidateUtil.submitSchemaCheckWork (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/utils/validate/validate-util.js:1:7013)
+    at ProjectModelImpl.projectBuildProfileCheck (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/core-project-model-impl.js:1:9382)
+    at new CoreProjectModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/core-project-model-impl.js:1:2677)
+    at new ProjectModelImpl (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/model/project/project-model-impl.js:1:596)
+    at new AppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/app-plugin.js:1:514)
+    at StageInitializationStrategy.createAppPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js:1:949)
+    at AppPluginBuilder.createPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js:1:1610)
+    at AppPluginBuilder.build (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/abstract-plugin-builder.js:1:756)
+[2026-06-08T19:19:35.239] [ERROR] debug-file - BUILD FAILED in 18 ms 
+[2026-06-08T19:19:35.241] [DEBUG] debug-file - There's no busy workers and idle workers need cleanup.
+[2026-06-08T19:19:35.242] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-06-08T19:19:35.245] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T19:19:35.245] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T19:19:35.246] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:19:35.246] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:20:08.837] [DEBUG] debug-file - session manager: set active socket. socketId=Fg7spCzzdC1oeJ9OAAAL
+[2026-06-08T19:20:08.838] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:20:08.839] [DEBUG] debug-file - Workers' log level updated to INFO
+[2026-06-08T19:20:08.840] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-06-08T19:20:08.840] [DEBUG] debug-file - Since current hvigor version 6.24.2 differs from last hvigor version 
+      undefined, delete file-cache.json and task-cache.json.
+[2026-06-08T19:20:08.841] [DEBUG] debug-file - Cache service initialization finished in 1 ms 
+[2026-06-08T19:20:08.841] [DEBUG] debug-file - hvigorfile, resolving /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/hvigorfile.ts
+[2026-06-08T19:20:08.845] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-06-08T19:20:08.845] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-06-08T19:20:08.845] [DEBUG] debug-file - Starting plugin build process
+[2026-06-08T19:20:08.845] [DEBUG] debug-file - App plugin prepare start...
+[2026-06-08T19:20:08.845] [DEBUG] debug-file - App plugin prepare end...
+[2026-06-08T19:20:08.845] [DEBUG] debug-file - App plugin creating...
+[2026-06-08T19:20:08.847] [DEBUG] debug-file - App plugin register hook start...
+[2026-06-08T19:20:08.847] [DEBUG] debug-file - App plugin register hook end...
+[2026-06-08T19:20:08.847] [DEBUG] debug-file - Plugin build process completed
+[2026-06-08T19:20:08.848] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-06-08T19:20:08.848] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-06-08T19:20:08.848] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-06-08T19:20:08.849] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-06-08T19:20:08.849] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-06-08T19:20:08.850] [DEBUG] debug-file - not found resModel json file in : /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/entry/src/ohosTest/module.json5
+[2026-06-08T19:20:08.851] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-06-08T19:20:08.851] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2026-06-08T19:20:08.854] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2026-06-08T19:20:08.857] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2026-06-08T19:20:08.876] [DEBUG] debug-file - Sdk init in 25 ms 
+[2026-06-08T19:20:08.878] [DEBUG] debug-file - Project task initialization takes 2 ms 
+[2026-06-08T19:20:08.878] [DEBUG] debug-file - hvigorfile, begin to bind custom plugins...
+[2026-06-08T19:20:08.878] [DEBUG] debug-file - hvigorfile, no custom plugins were found in /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/hvigorfile.ts
+[2026-06-08T19:20:08.878] [DEBUG] debug-file - hvigorfile, resolve finished /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/hvigorfile.ts
+[2026-06-08T19:20:08.878] [DEBUG] debug-file - hvigorfile, resolving /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/entry/hvigorfile.ts
+[2026-06-08T19:20:08.881] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-06-08T19:20:08.881] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-06-08T19:20:08.881] [DEBUG] debug-file - Starting plugin build process
+[2026-06-08T19:20:08.881] [DEBUG] debug-file - Hap plugin creating...
+[2026-06-08T19:20:08.882] [DEBUG] debug-file - failed to load cangjie to dynamically generate schemas: Error: Cannot find module '@ohos/cangjie-build-support/index'
+Require stack:
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/hooks/cangjie-register.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/abstract-plugin-builder.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js
+- /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/hvigorfile.ts
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/boot/index.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/cluster/worker-process-lifecycle.js
+- /Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/daemon/process/daemon-process-boot-script.js
+[2026-06-08T19:20:08.888] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-06-08T19:20:08.888] [DEBUG] debug-file - Target 'default' config initialized
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=release
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - Target 'default' config initialized
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=entry, buildMode=debug
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - Target 'default' config initialized
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - Target 'ohosTest' config initialized
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - Module 'entry' target 'default' build option initialized
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - Module 'entry' target 'ohosTest' build option initialized
+[2026-06-08T19:20:08.889] [DEBUG] debug-file - End initialize module-target build option map, moduleName=entry
+[2026-06-08T19:20:08.890] [DEBUG] debug-file - Obtain build option for module 'entry' target 'default'in this build.
+[2026-06-08T19:20:08.891] [DEBUG] debug-file - hvigor build process will be closed with an error.
+[2026-06-08T19:20:08.891] [ERROR] debug-file - [31m00303030 Configuration Error
+Error Message: For the OpenHarmony project, you need to configure the compileSdkVersion in the product, at file: /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5
+
+* Try the following:
+  > Please configure the compileSdkVersion in the product.
+[39m
+
+[31m* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+
+[2026-06-08T19:20:08.891] [DEBUG] debug-file - ERROR: stacktrace = AdaptorError: [31m00303030 Configuration Error
+Error Message: For the OpenHarmony project, you need to configure the compileSdkVersion in the product, at file: /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5
+
+* Try the following:
+  > Please configure the compileSdkVersion in the product.
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at ValidateUtil.integrationVersionCheck (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/utils/validate/validate-util.js:1:5048)
+    at new TargetTaskService (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/tasks/service/target-task-service.js:1:2924)
+    at HapPlugin.initTargetDepends (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/common/abstract-module-plugin.js:1:3079)
+    at StageInitializationStrategy.setUpModulePlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js:1:3068)
+    at StageInitializationStrategy.createHapPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js:1:1229)
+    at HapPluginBuilder.createPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/hap-plugin-builder.js:1:622)
+    at HapPluginBuilder.build (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/abstract-plugin-builder.js:1:756)
+    at PluginFactory.getHapPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js:1:574)
+    at hapTasks (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js:1:443)
+[2026-06-08T19:20:08.891] [ERROR] debug-file - AdaptorError: [31m00303030 Configuration Error
+Error Message: For the OpenHarmony project, you need to configure the compileSdkVersion in the product, at file: /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/build-profile.json5
+
+* Try the following:
+  > Please configure the compileSdkVersion in the product.
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at ValidateUtil.integrationVersionCheck (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/utils/validate/validate-util.js:1:5048)
+    at new TargetTaskService (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/tasks/service/target-task-service.js:1:2924)
+    at HapPlugin.initTargetDepends (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/common/abstract-module-plugin.js:1:3079)
+    at StageInitializationStrategy.setUpModulePlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js:1:3068)
+    at StageInitializationStrategy.createHapPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/strategy/stage-init-strategy.js:1:1229)
+    at HapPluginBuilder.createPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/hap-plugin-builder.js:1:622)
+    at HapPluginBuilder.build (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/abstract-plugin-builder.js:1:756)
+    at PluginFactory.getHapPlugin (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/factory/plugin-factory.js:1:574)
+    at hapTasks (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/index.js:1:443)
+[2026-06-08T19:20:08.891] [ERROR] debug-file - BUILD FAILED in 53 ms 
+[2026-06-08T19:20:08.893] [DEBUG] debug-file - There's no busy workers and idle workers need cleanup.
+[2026-06-08T19:20:08.893] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-06-08T19:20:08.896] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T19:20:08.896] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T19:20:08.896] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:20:08.896] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:20:38.171] [DEBUG] debug-file - session manager: set active socket. socketId=CsRdii2nzahVW6SxAAAN
+[2026-06-08T19:20:38.173] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:20:38.174] [DEBUG] debug-file - Workers' log level updated to INFO
+[2026-06-08T19:20:38.176] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-06-08T19:20:38.177] [DEBUG] debug-file - Cache service initialization finished in 1 ms 
+[2026-06-08T19:20:38.177] [DEBUG] debug-file - hvigorfile, resolving /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/hvigorfile.ts
+[2026-06-08T19:20:38.184] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-06-08T19:20:38.184] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-06-08T19:20:38.185] [DEBUG] debug-file - Starting plugin build process
+[2026-06-08T19:20:38.185] [DEBUG] debug-file - App plugin prepare start...
+[2026-06-08T19:20:38.185] [DEBUG] debug-file - App plugin prepare end...
+[2026-06-08T19:20:38.185] [DEBUG] debug-file - App plugin creating...
+[2026-06-08T19:20:38.188] [DEBUG] debug-file - App plugin register hook start...
+[2026-06-08T19:20:38.188] [DEBUG] debug-file - App plugin register hook end...
+[2026-06-08T19:20:38.188] [DEBUG] debug-file - Plugin build process completed
+[2026-06-08T19:20:38.188] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-06-08T19:20:38.188] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-06-08T19:20:38.188] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-06-08T19:20:38.188] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-06-08T19:20:38.189] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-06-08T19:20:38.189] [DEBUG] debug-file - not found resModel json file in : /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/entry/src/ohosTest/module.json5
+[2026-06-08T19:20:38.190] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-06-08T19:20:38.190] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2026-06-08T19:20:38.192] [DEBUG] debug-file - hvigor build process will be closed with an error.
+[2026-06-08T19:20:38.193] [ERROR] debug-file - [31m00303168 Configuration Error
+Error Message: SDK component missing.
+
+* Try the following:
+  > Please verify the integrity of your SDK.
+  > Please update the SDK at the download link below.
+  > More info: https://developer.huawei.com/consumer/cn/download
+[39m
+
+[31m* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+
+[2026-06-08T19:20:38.193] [DEBUG] debug-file - ERROR: stacktrace = AdaptorError: [31m00303168 Configuration Error
+Error Message: SDK component missing.
+
+* Try the following:
+  > Please verify the integrity of your SDK.
+  > Please update the SDK at the download link below.
+  > More info: https://developer.huawei.com/consumer/cn/download
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at HmosSdkLoader.getHmosSdkComponents (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/sdk/hmos-sdk-loader.js:1:1895)
+    at HosSdkInfo.setup (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/sdk/info/hos-sdk-info.js:1:1537)
+    at ProjectTaskService.setup (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/tasks/service/project-task-service.js:1:2525)
+    at ProjectImpl.<anonymous> (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js:1:2361)
+    at ProjectImpl.executeAfterBindSystemPluginsHook (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/hvigor-node-impl/default-node-impl.js:1:5577)
+    at evaluateNodeVigorFile (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:9617)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async evalProject (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:3608)
+    at async configuration (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:2352)
+[2026-06-08T19:20:38.193] [ERROR] debug-file - AdaptorError: [31m00303168 Configuration Error
+Error Message: SDK component missing.
+
+* Try the following:
+  > Please verify the integrity of your SDK.
+  > Please update the SDK at the download link below.
+  > More info: https://developer.huawei.com/consumer/cn/download
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at HmosSdkLoader.getHmosSdkComponents (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/sdk/hmos-sdk-loader.js:1:1895)
+    at HosSdkInfo.setup (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/sdk/info/hos-sdk-info.js:1:1537)
+    at ProjectTaskService.setup (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/tasks/service/project-task-service.js:1:2525)
+    at ProjectImpl.<anonymous> (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js:1:2361)
+    at ProjectImpl.executeAfterBindSystemPluginsHook (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/hvigor-node-impl/default-node-impl.js:1:5577)
+    at evaluateNodeVigorFile (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:9617)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async evalProject (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:3608)
+    at async configuration (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:2352)
+[2026-06-08T19:20:38.193] [ERROR] debug-file - BUILD FAILED in 19 ms 
+[2026-06-08T19:20:38.194] [DEBUG] debug-file - There's no busy workers and idle workers need cleanup.
+[2026-06-08T19:20:38.194] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-06-08T19:20:38.196] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T19:20:38.197] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T19:20:38.197] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:20:38.197] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:22:19.444] [DEBUG] debug-file - session manager: set active socket. socketId=UpXqTav70fO1Db-5AAAP
+[2026-06-08T19:22:19.445] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:22:19.446] [DEBUG] debug-file - Workers' log level updated to INFO
+[2026-06-08T19:22:19.447] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },
+  optimizationStrategy: 'memory',
+  hotCompile: undefined,
+  hotReloadBuild: undefined,
+  customizedParam: undefined
+}
+[2026-06-08T19:22:19.448] [DEBUG] debug-file - Cache service initialization finished in 1 ms 
+[2026-06-08T19:22:19.448] [DEBUG] debug-file - hvigorfile, resolving /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/hvigorfile.ts
+[2026-06-08T19:22:19.452] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2026-06-08T19:22:19.452] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2026-06-08T19:22:19.452] [DEBUG] debug-file - Starting plugin build process
+[2026-06-08T19:22:19.452] [DEBUG] debug-file - App plugin prepare start...
+[2026-06-08T19:22:19.452] [DEBUG] debug-file - App plugin prepare end...
+[2026-06-08T19:22:19.452] [DEBUG] debug-file - App plugin creating...
+[2026-06-08T19:22:19.454] [DEBUG] debug-file - App plugin register hook start...
+[2026-06-08T19:22:19.454] [DEBUG] debug-file - App plugin register hook end...
+[2026-06-08T19:22:19.454] [DEBUG] debug-file - Plugin build process completed
+[2026-06-08T19:22:19.454] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2026-06-08T19:22:19.455] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2026-06-08T19:22:19.455] [DEBUG] debug-file - Product 'default' build option initialized
+[2026-06-08T19:22:19.455] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2026-06-08T19:22:19.455] [DEBUG] debug-file - Obtain build option for product 'default'in this build.
+[2026-06-08T19:22:19.455] [DEBUG] debug-file - not found resModel json file in : /Users/renchengtian/Projects/hmos_proj/projs/IMESkin/entry/src/ohosTest/module.json5
+[2026-06-08T19:22:19.456] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2026-06-08T19:22:19.457] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2026-06-08T19:22:19.459] [DEBUG] debug-file - hvigor build process will be closed with an error.
+[2026-06-08T19:22:19.460] [ERROR] debug-file - [31m00303168 Configuration Error
+Error Message: SDK component missing.
+
+* Try the following:
+  > Please verify the integrity of your SDK.
+  > Please update the SDK at the download link below.
+  > More info: https://developer.huawei.com/consumer/cn/download
+[39m
+
+[31m* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+
+[2026-06-08T19:22:19.460] [DEBUG] debug-file - ERROR: stacktrace = AdaptorError: [31m00303168 Configuration Error
+Error Message: SDK component missing.
+
+* Try the following:
+  > Please verify the integrity of your SDK.
+  > Please update the SDK at the download link below.
+  > More info: https://developer.huawei.com/consumer/cn/download
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at HmosSdkLoader.getHmosSdkComponents (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/sdk/hmos-sdk-loader.js:1:1895)
+    at HosSdkInfo.setup (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/sdk/info/hos-sdk-info.js:1:1537)
+    at ProjectTaskService.setup (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/tasks/service/project-task-service.js:1:2525)
+    at ProjectImpl.<anonymous> (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js:1:2361)
+    at ProjectImpl.executeAfterBindSystemPluginsHook (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/hvigor-node-impl/default-node-impl.js:1:5577)
+    at evaluateNodeVigorFile (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:9617)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async evalProject (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:3608)
+    at async configuration (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:2352)
+[2026-06-08T19:22:19.460] [ERROR] debug-file - AdaptorError: [31m00303168 Configuration Error
+Error Message: SDK component missing.
+
+* Try the following:
+  > Please verify the integrity of your SDK.
+  > Please update the SDK at the download link below.
+  > More info: https://developer.huawei.com/consumer/cn/download
+[39m
+    at OhosLogger.printErrorExit (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/log/hvigor-log.js:1:5087)
+    at HmosSdkLoader.getHmosSdkComponents (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/sdk/hmos-sdk-loader.js:1:1895)
+    at HosSdkInfo.setup (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/sdk/info/hos-sdk-info.js:1:1537)
+    at ProjectTaskService.setup (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/tasks/service/project-task-service.js:1:2525)
+    at ProjectImpl.<anonymous> (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor-ohos-plugin/src/plugin/builder/app-plugin-builder.js:1:2361)
+    at ProjectImpl.executeAfterBindSystemPluginsHook (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/hvigor-node-impl/default-node-impl.js:1:5577)
+    at evaluateNodeVigorFile (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:9617)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async evalProject (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:3608)
+    at async configuration (/Applications/DevEco-Studio.app/Contents/tools/hvigor/hvigor/src/base/internal/lifecycle/configuration.js:1:2352)
+[2026-06-08T19:22:19.461] [ERROR] debug-file - BUILD FAILED in 15 ms 
+[2026-06-08T19:22:19.462] [DEBUG] debug-file - There's no busy workers and idle workers need cleanup.
+[2026-06-08T19:22:19.462] [DEBUG] debug-file - hvigor build process will be closed.
+[2026-06-08T19:22:19.465] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T19:22:19.465] [DEBUG] debug-file - session manager: send message to worker process.
+[2026-06-08T19:22:19.465] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2026-06-08T19:22:19.465] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.

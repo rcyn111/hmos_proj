@@ -1,0 +1,130 @@
+# ============================================================
+# HarmonyOS Dev Claw — 行为配置
+# ============================================================
+# 本文件定义 Claw 的运行时行为参数。
+# 修改后无需重启，下次 skill 执行时生效。
+# ============================================================
+
+# ----------------------------------------------------------
+# 基本设置
+# ----------------------------------------------------------
+claw:
+  name: "HarmonyOS Dev Claw"
+  version: "0.1.0"
+  language: "zh-CN"               # 界面和交流语言
+  project_root: "$PROJECT_ROOT"
+
+# ----------------------------------------------------------
+# Skill 执行设置
+# ----------------------------------------------------------
+skill_execution:
+  # 是否在每次 skill 执行后自动生成复盘记录
+  auto_review: true
+
+  # 复盘记录保存目录（相对于 project_root）
+  runs_dir: "runs"
+
+  # 复盘记录命名格式
+  # 可用变量：{date} {time} {skill_name}
+  run_file_format: "{date}_{time}_{skill_name}.md"
+
+  # 是否在每次 skill 执行后自动触发 skill 进化检查
+  auto_evolve: true
+
+  # 最少需要多少次执行记录才能触发进化建议
+  min_runs_before_evolve: 2
+
+# ----------------------------------------------------------
+# 知识库设置
+# ----------------------------------------------------------
+knowledge_base:
+  # 知识库根目录（相对于 project_root）
+  base_dir: "knowledge"
+
+  # 是否在解决问题后自动建议更新知识库
+  auto_suggest_update: true
+
+  # 资料过期提醒（天），超过此天数的资料标记为"待验证"
+  stale_days: 90
+
+# ----------------------------------------------------------
+# 文档搜索设置
+# ----------------------------------------------------------
+doc_search:
+  # 优先搜索的域名
+  priority_domains:
+    - "developer.huawei.com"
+    - "developer.harmonyos.com"
+
+  # 搜索结果保存目录
+  cache_dir: "knowledge"
+
+  # 搜索超时时间（秒）
+  timeout: 30
+
+# ----------------------------------------------------------
+# 代码生成设置
+# ----------------------------------------------------------
+code_generation:
+  # 默认编程语言
+  language: "ArkTS"
+
+  # 默认 UI 框架
+  ui_framework: "ArkUI"
+
+  # 是否在生成代码后自动添加注释
+  add_comments: true
+
+  # 注释语言
+  comment_language: "zh-CN"
+
+  # 每次生成代码的最大行数（防止一次生成太多）
+  max_lines_per_generation: 150
+
+# ----------------------------------------------------------
+# 新手友好设置
+# ----------------------------------------------------------
+beginner_friendly:
+  # 是否对每个操作给出解释
+  explain_each_action: true
+
+  # 首次出现的术语是否自动解释
+  explain_new_terms: true
+
+  # 每次最多修改的文件数（防止大范围改动）
+  max_files_per_change: 3
+
+  # 是否在修改前先展示修改计划
+  show_plan_before_edit: true
+
+# ----------------------------------------------------------
+# 安全设置
+# ----------------------------------------------------------
+security:
+  # 是否启用权限检查
+  enable_permission_check: true
+
+  # 敏感字段匹配模式（禁止出现在任何项目文件中）
+  sensitive_patterns:
+    - "sk-"
+    - "ANTHROPIC_AUTH_TOKEN"
+    - "api_key"
+    - "api[_-]?key"
+    - "token"
+    - "secret"
+
+# ----------------------------------------------------------
+# HarmonyOS 设置
+# ----------------------------------------------------------
+harmonyos:
+  # 目标 HarmonyOS 版本（用于 API 兼容性检查）
+  target_version: "5.0"
+
+  # 目标 API level
+  api_level: 12
+
+  # 官方文档根地址
+  official_docs_url: "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/"
+
+  # API 参考文档地址
+  api_reference_url: "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/"

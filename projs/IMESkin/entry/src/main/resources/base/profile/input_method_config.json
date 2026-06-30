@@ -1,0 +1,11 @@
+{
+  "subtypes": [
+    {
+      "id": "en_us_skin",
+      "label": "Skin Keyboard",
+      "locale": "en-US",
+      "mode": "lower",
+      "icon": "$media:icon"
+    }
+  ]
+}

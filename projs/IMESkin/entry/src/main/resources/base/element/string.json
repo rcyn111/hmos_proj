@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "Dark Skin 键盘"
+    },
+    {
+      "name": "module_desc",
+      "value": "一个深色主题的自定义输入法皮肤"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "应用入口"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Dark Skin"
+    },
+    {
+      "name": "InputMethodExtAbility_desc",
+      "value": "深色皮肤输入法"
+    },
+    {
+      "name": "InputMethodExtAbility_label",
+      "value": "Dark Skin Keyboard"
+    }
+  ]
+}

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Photoshop</title>
+<style>
+:root {
+  --bg: #1e1e1e;
+  --panel: #252526;
+  --border: #3e3e3e;
+  --text: #cccccc;
+  --text-bright: #ffffff;
+  --accent: #0078d4;
+  --accent-hover: #1a8ae8;
+  --danger: #d32f2f;
+  --success: #4caf50;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg); color: var(--text); height: 100vh; overflow: hidden;
+  display: flex; flex-direction: column;
+  user-select: none; -webkit-user-select: none;
+}
+
+/* ====== 菜单栏 ====== */
+.menubar {
+  display: flex; align-items: center; gap: 20px;
+  height: 32px; padding: 0 12px; background: #2d2d2d;
+  border-bottom: 1px solid var(--border); font-size: 13px;
+}
+.menubar span { cursor: pointer; padding: 2px 6px; border-radius: 3px; }
+.menubar span:hover { background: #3e3e3e; }
+.app-title { font-weight: 700; color: var(--accent); margin-right: auto; }
+
+/* ====== 主区域 ====== */
+.main-area { display: flex; flex: 1; overflow: hidden; }
+
+/* ====== 左面板 ====== */
+.left-panel {
+  width: 260px; min-width: 260px; background: var(--panel);
+  border-right: 1px solid var(--border); display: flex; flex-direction: column;
+  overflow-y: auto;
+}
+.panel-section {
+  padding: 12px; border-bottom: 1px solid var(--border);
+}
+.panel-title {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  color: #888; margin-bottom: 8px; letter-spacing: 0.5px;
+}
+
+/* ====== 快捷 Skills 按钮 ====== */
+.skill-btns { display: flex; flex-wrap: wrap; gap: 4px; }
+.skill-btn {
+  padding: 5px 10px; border: 1px solid var(--border); border-radius: 4px;
+  background: #333; color: var(--text); cursor: pointer; font-size: 12px;
+  transition: all 0.15s; white-space: nowrap;
+}
+.skill-btn:hover { background: #444; border-color: #666; }
+.skill-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* ====== 中央画布 ====== */
+.canvas-area {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  background: #0d0d0d; position: relative;
+  background-image:
+    linear-gradient(45deg, #1a1a1a 25%, transparent 25%),
+    linear-gradient(-45deg, #1a1a1a 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #1a1a1a 75%),
+    linear-gradient(-45deg, transparent 75%, #1a1a1a 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+.canvas-area .drop-zone {
+  text-align: center; color: #666;
+}
+.drop-zone .icon { font-size: 64px; margin-bottom: 16px; }
+.drop-zone p { font-size: 14px; margin: 4px 0; }
+.canvas-area img {
+  max-width: 95%; max-height: 95%; object-fit: contain;
+  border-radius: 2px; box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+}
+
+/* ====== 右面板 ====== */
+.right-panel {
+  width: 280px; min-width: 280px; background: var(--panel);
+  border-left: 1px solid var(--border); display: flex; flex-direction: column;
+  overflow-y: auto;
+}
+
+/* 滑块 */
+.slider-group { margin-bottom: 10px; }
+.slider-label { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; }
+.slider-label span:last-child { color: var(--accent); font-weight: 600; }
+input[type=range] {
+  -webkit-appearance: none; width: 100%; height: 4px;
+  background: #444; border-radius: 2px; outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 14px; height: 14px;
+  background: var(--accent); border-radius: 50%; cursor: pointer;
+}
+.apply-btn {
+  width: 100%; padding: 6px; margin-top: 4px;
+  background: #333; color: var(--text); border: 1px solid var(--border);
+  border-radius: 4px; cursor: pointer; font-size: 12px;
+}
+.apply-btn:hover { background: #444; }
+
+/* 滤镜按钮行 */
+.filter-row { display: flex; gap: 4px; flex-wrap: wrap; }
+.filter-btn {
+  flex: 1; min-width: 55px; padding: 6px 4px;
+  background: #333; color: var(--text); border: 1px solid var(--border);
+  border-radius: 4px; cursor: pointer; font-size: 11px; text-align: center;
+}
+.filter-btn:hover { background: #444; }
+
+/* ====== 工具栏 ====== */
+.toolbar {
+  display: flex; gap: 6px; padding: 8px 12px;
+  background: var(--panel); border-bottom: 1px solid var(--border);
+  align-items: center; flex-wrap: wrap;
+}
+.toolbar .sep { width: 1px; height: 24px; background: var(--border); margin: 0 4px; }
+.tool-btn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 6px 10px; border: 1px solid transparent; border-radius: 5px;
+  background: transparent; color: var(--text); cursor: pointer;
+  font-size: 12px; white-space: nowrap; transition: all 0.15s;
+}
+.tool-btn:hover { background: #3a3a3a; border-color: #555; }
+.tool-btn:active { background: var(--accent); color: #fff; }
+.tool-btn .icon { font-size: 16px; }
+.tool-label { font-size: 11px; color: #888; margin-right: 2px; }
+.resize-input {
+  width: 55px; height: 24px; padding: 0 6px;
+  background: #1e1e1e; border: 1px solid var(--border); border-radius: 3px;
+  color: var(--text-bright); font-size: 11px; text-align: center; outline: none;
+}
+.resize-input:focus { border-color: var(--accent); }
+.resize-x { color: #666; font-size: 11px; }
+
+/* ====== 底部 AI 栏 ====== */
+.ai-bar {
+  height: 60px; background: #2d2d2d; border-top: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px; padding: 0 16px;
+}
+.ai-bar input {
+  flex: 1; height: 36px; padding: 0 14px;
+  background: #1e1e1e; border: 1px solid var(--border); border-radius: 6px;
+  color: var(--text-bright); font-size: 14px; outline: none;
+}
+.ai-bar input:focus { border-color: var(--accent); }
+.ai-bar input::placeholder { color: #666; }
+.ai-btn {
+  height: 36px; padding: 0 20px;
+  background: var(--accent); color: #fff; border: none; border-radius: 6px;
+  font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap;
+}
+.ai-btn:hover { background: var(--accent-hover); }
+.ai-btn:disabled { background: #444; color: #888; cursor: not-allowed; }
+
+/* ====== 状态栏 ====== */
+.statusbar {
+  height: 26px; padding: 0 12px; background: #007acc; color: #fff;
+  display: flex; align-items: center; gap: 16px; font-size: 12px;
+}
+.statusbar .dot { width: 8px; height: 8px; border-radius: 50%; background: #4caf50; }
+.statusbar .dot.processing { background: #ff9800; animation: pulse 1s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+/* 历史列表 */
+.history-list { font-size: 12px; max-height: 200px; overflow-y: auto; }
+.history-item {
+  padding: 4px 8px; border-radius: 3px; margin: 2px 0;
+  background: #2a2a2a; color: #aaa;
+}
+
+/* Toast */
+.toast {
+  position: fixed; top: 40px; left: 50%; transform: translateX(-50%);
+  padding: 10px 24px; border-radius: 6px; font-size: 13px; z-index: 1000;
+  pointer-events: none; opacity: 0; transition: opacity 0.3s;
+}
+.toast.show { opacity: 1; }
+.toast.success { background: #2e7d32; color: #fff; }
+.toast.error { background: #c62828; color: #fff; }
+.toast.info { background: #1565c0; color: #fff; }
+
+/* 图片信息浮层 */
+.image-info {
+  position: absolute; bottom: 10px; left: 10px;
+  font-size: 11px; color: #888; background: rgba(0,0,0,0.6);
+  padding: 4px 10px; border-radius: 4px;
+}
+</style>
+</head>
+<body>
+
+<!-- 菜单栏 -->
+<div class="menubar">
+  <span class="app-title">🖼️ AI Photoshop</span>
+  <span onclick="document.getElementById('fileInput').click()">📂 打开</span>
+  <span onclick="saveImage()">💾 保存</span>
+  <span onclick="undo()">↩ 撤销</span>
+  <span onclick="redo()">↪ 重做</span>
+  <span onclick="reset()">🔄 重置</span>
+  <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="uploadImage(this)">
+</div>
+
+<!-- 主区域 -->
+<div class="main-area">
+
+  <!-- 左面板 -->
+  <div class="left-panel">
+    <div class="panel-section">
+      <div class="panel-title">🎯 AI Skills (点击发送指令)</div>
+      <div class="skill-btns" id="skillBtns"></div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-title">📋 操作历史</div>
+      <div class="history-list" id="historyList">
+        <div style="color:#666;font-size:12px">暂无操作记录</div>
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-title">📐 图像信息</div>
+      <div id="imageInfo" style="font-size:12px;color:#888">未加载图片</div>
+    </div>
+  </div>
+
+  <!-- 中央区域 -->
+  <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+    <!-- 工具栏 -->
+    <div class="toolbar">
+      <span class="tool-label">旋转</span>
+      <button class="tool-btn" onclick="toolAction('rotate_ccw')" title="逆时针90°"><span class="icon">↺</span> 左转</button>
+      <button class="tool-btn" onclick="toolAction('rotate_cw')" title="顺时针90°"><span class="icon">↻</span> 右转</button>
+      <button class="tool-btn" onclick="toolAction('rotate_180')" title="180°"><span class="icon">🔄</span> 180°</button>
+      <span class="sep"></span>
+      <span class="tool-label">翻转</span>
+      <button class="tool-btn" onclick="toolAction('flip_h')" title="水平翻转"><span class="icon">↔</span> 水平</button>
+      <button class="tool-btn" onclick="toolAction('flip_v')" title="垂直翻转"><span class="icon">↕</span> 垂直</button>
+      <span class="sep"></span>
+      <button class="tool-btn" onclick="toolAction('crop_square')" title="裁剪为正方形"><span class="icon">⬜</span> 裁正方形</button>
+      <span class="sep"></span>
+      <span class="tool-label">缩放</span>
+      <input type="number" class="resize-input" id="resizeW" placeholder="宽" min="1">
+      <span class="resize-x">×</span>
+      <input type="number" class="resize-input" id="resizeH" placeholder="高" min="1">
+      <button class="tool-btn" onclick="toolResize()">应用</button>
+      <span class="sep"></span>
+      <button class="tool-btn" onclick="document.getElementById('fileInput').click()"><span class="icon">📂</span> 打开</button>
+      <button class="tool-btn" onclick="saveImage()"><span class="icon">💾</span> 保存</button>
+    </div>
+
+    <!-- 画布 -->
+    <div class="canvas-area" id="canvasArea"
+         ondragover="event.preventDefault()"
+         ondrop="handleDrop(event)">
+      <div class="drop-zone" id="dropZone">
+        <div class="icon">🖼️</div>
+        <p>拖拽图片到此处</p>
+        <p style="font-size:12px;color:#555">或使用上方工具栏「打开」</p>
+      </div>
+      <img id="mainImage" style="display:none" />
+      <div class="image-info" id="imageInfoOverlay" style="display:none"></div>
+    </div>
+  </div>
+
+  <!-- 右面板 -->
+  <div class="right-panel">
+    <div class="panel-section">
+      <div class="panel-title">🎚️ 亮度</div>
+      <div class="slider-group">
+        <div class="slider-label"><span>亮度</span><span id="brightVal">0</span></div>
+        <input type="range" id="brightSlider" min="-100" max="100" value="0" step="5"
+               oninput="document.getElementById('brightVal').textContent=this.value">
+        <button class="apply-btn" onclick="manualAdjust('adjust_brightness', brightSlider.value)">应用亮度</button>
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-title">🎚️ 对比度</div>
+      <div class="slider-group">
+        <div class="slider-label"><span>对比度</span><span id="contrastVal">0</span></div>
+        <input type="range" id="contrastSlider" min="-100" max="100" value="0" step="5"
+               oninput="document.getElementById('contrastVal').textContent=this.value">
+        <button class="apply-btn" onclick="manualAdjust('adjust_contrast', contrastSlider.value)">应用对比度</button>
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-title">🎚️ 饱和度</div>
+      <div class="slider-group">
+        <div class="slider-label"><span>饱和度</span><span id="saturVal">0</span></div>
+        <input type="range" id="saturSlider" min="-100" max="100" value="0" step="5"
+               oninput="document.getElementById('saturVal').textContent=this.value">
+        <button class="apply-btn" onclick="manualAdjust('adjust_saturation', saturSlider.value)">应用饱和度</button>
+      </div>
+    </div>
+    <div class="panel-section">
+      <div class="panel-title">🎨 快捷滤镜</div>
+      <div class="filter-row">
+        <button class="filter-btn" onclick="quickFilter('apply_grayscale')">⚫ 黑白</button>
+        <button class="filter-btn" onclick="quickFilter('apply_sepia')">🟤 复古</button>
+        <button class="filter-btn" onclick="quickFilter('apply_blur')">💨 模糊</button>
+        <button class="filter-btn" onclick="quickFilter('apply_sharpen')">✨ 锐化</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 底部 AI 指令栏 -->
+<div class="ai-bar">
+  <span style="font-size:18px">🤖</span>
+  <input type="text" id="commandInput"
+         placeholder="输入指令，例如: 让阳光更强烈，四周暗一点..."
+         onkeydown="if(event.key==='Enter')executeCommand()">
+  <button class="ai-btn" id="execBtn" onclick="executeCommand()">🚀 执行</button>
+</div>
+
+<!-- 状态栏 -->
+<div class="statusbar">
+  <div class="dot" id="statusDot"></div>
+  <span id="statusText">就绪 — 请上传图片开始编辑</span>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ====== 状态 ======
+const API = '';
+
+// ====== 初始化 ======
+async function init() {
+  const resp = await fetch('/api/status').then(r => r.json());
+  document.getElementById('statusText').textContent =
+    `就绪 — ${resp.operations_count} 个操作 + ${resp.skills_count} 个 Skills`;
+  buildSkillButtons(resp.skills);
+}
+init();
+
+function buildSkillButtons(skills) {
+  const skillNames = {
+    'brighten_subject': '🎯 突出主体',
+    'enhance_sunlight': '☀️ 增强阳光',
+    'fix_underexposed': '💡 提亮暗部',
+    'reduce_highlights': '🌥️ 压低高光',
+    'dodge_and_burn': '📐 立体感',
+    'golden_hour': '🌅 黄金时刻',
+    'moody_cool': '❄️ 冷色调',
+    'vibrant_pop': '🌈 色彩增强',
+    'skin_smooth': '🧴 磨皮',
+    'eye_enhance': '👁️ 眼神光',
+    'add_vignette': '🔲 暗角',
+    'clarity_boost': '🔍 质感增强',
+  };
+  const container = document.getElementById('skillBtns');
+  skills.forEach(s => {
+    const btn = document.createElement('button');
+    btn.className = 'skill-btn';
+    btn.textContent = skillNames[s] || s;
+    btn.title = s;
+    btn.onclick = () => {
+      document.getElementById('commandInput').value = s.replace(/_/g, ' ');
+      executeCommand();
+    };
+    container.appendChild(btn);
+  });
+}
+
+// ====== 上传 ======
+async function uploadImage(input) {
+  const file = input.files[0];
+  if (!file) return;
+  setStatus('processing', '加载图片...');
+  const reader = new FileReader();
+  reader.onload = async (e) => {
+    const resp = await fetch('/api/upload', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({image: e.target.result})
+    }).then(r => r.json());
+    if (resp.success) {
+      updatePreview();
+      document.getElementById('dropZone').style.display = 'none';
+      document.getElementById('mainImage').style.display = 'block';
+      document.getElementById('imageInfoOverlay').style.display = 'block';
+      document.getElementById('imageInfoOverlay').textContent =
+        `${resp.width}×${resp.height} | 平均亮度: ${resp.stats?.mean_brightness || '?'}`;
+      document.getElementById('imageInfo').innerHTML =
+        `尺寸: ${resp.width}×${resp.height}<br>平均亮度: ${resp.stats?.mean_brightness || '?'}/255<br>暗部: ${resp.stats?.dark_ratio || '?'}<br>亮部: ${resp.stats?.bright_ratio || '?'}`;
+      toast('图片加载成功', 'success');
+      setStatus('ready', `已加载 ${resp.width}×${resp.height}`);
+    } else {
+      toast('加载失败: ' + resp.error, 'error');
+      setStatus('ready', '加载失败');
+    }
+  };
+  reader.readAsDataURL(file);
+}
+
+function handleDrop(e) {
+  e.preventDefault();
+  const file = e.dataTransfer.files[0];
+  if (file) {
+    const input = document.getElementById('fileInput');
+    const dt = new DataTransfer();
+    dt.items.add(file);
+    input.files = dt.files;
+    uploadImage(input);
+  }
+}
+
+// ====== 预览刷新 ======
+async function updatePreview() {
+  const resp = await fetch('/api/preview').then(r => r.json());
+  if (resp.image) {
+    document.getElementById('mainImage').src = resp.image;
+    document.getElementById('imageInfoOverlay').textContent = `${resp.width}×${resp.height}`;
+  }
+}
+
+// ====== AI 指令 ======
+async function executeCommand() {
+  const input = document.getElementById('commandInput');
+  const cmd = input.value.trim();
+  if (!cmd) return;
+
+  const btn = document.getElementById('execBtn');
+  btn.disabled = true; btn.textContent = '⏳...';
+  setStatus('processing', `执行: ${cmd}`);
+
+  try {
+    const resp = await fetch('/api/command', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({command: cmd})
+    }).then(r => r.json());
+
+    if (resp.success) {
+      document.getElementById('mainImage').src = resp.preview;
+      updateHistory(resp.history);
+      resetSliders();
+      toast(`✅ ${resp.step_count} 步完成: ${resp.steps.join(' → ')}`, 'success');
+      setStatus('ready', `完成 ${resp.step_count} 步`);
+    } else {
+      toast('❌ ' + resp.error, 'error');
+      setStatus('ready', '执行失败');
+    }
+  } catch (e) {
+    toast('❌ 网络错误', 'error');
+    setStatus('ready', '网络错误');
+  }
+
+  btn.disabled = false; btn.textContent = '🚀 执行';
+  input.value = '';
+  input.focus();
+}
+
+// ====== 手动调整 ======
+async function manualAdjust(op, value) {
+  setStatus('processing', `${op}(${value})`);
+  const resp = await fetch('/api/manual', {
+    method: 'POST', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({operation: op, value: parseInt(value)})
+  }).then(r => r.json());
+  if (resp.success) {
+    document.getElementById('mainImage').src = resp.preview;
+    toast(`✅ ${op}: ${value}`, 'info');
+    setStatus('ready', `${op} = ${value}`);
+  } else {
+    toast('❌ ' + resp.error, 'error');
+  }
+}
+
+// ====== 快捷滤镜 ======
+async function quickFilter(filter) {
+  setStatus('processing', filter);
+  const resp = await fetch('/api/quick_filter', {
+    method: 'POST', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({filter: filter})
+  }).then(r => r.json());
+  if (resp.success) {
+    document.getElementById('mainImage').src = resp.preview;
+    toast(`✅ ${filter}`, 'info');
+    setStatus('ready', filter);
+  }
+}
+
+// ====== 撤销/重做/重置 ======
+async function undo() {
+  const resp = await fetch('/api/undo', {method:'POST'}).then(r=>r.json());
+  if (resp.success) { document.getElementById('mainImage').src = resp.preview; toast('↩ 已撤销', 'info'); }
+  else toast(resp.error, 'error');
+}
+async function redo() {
+  const resp = await fetch('/api/redo', {method:'POST'}).then(r=>r.json());
+  if (resp.success) { document.getElementById('mainImage').src = resp.preview; toast('↪ 已重做', 'info'); }
+  else toast(resp.error, 'error');
+}
+async function reset() {
+  const resp = await fetch('/api/reset', {method:'POST'}).then(r=>r.json());
+  if (resp.success) { document.getElementById('mainImage').src = resp.preview; document.getElementById('historyList').innerHTML = '<div style="color:#666;font-size:12px">暂无操作记录</div>'; toast('🔄 已恢复原图', 'info'); }
+}
+
+// ====== 工具栏操作 ======
+async function toolAction(action) {
+  setStatus('processing', action);
+  const resp = await fetch('/api/toolbar', {
+    method: 'POST', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({action: action})
+  }).then(r => r.json());
+  if (resp.success) {
+    document.getElementById('mainImage').src = resp.preview;
+    toast('✅ ' + resp.description, 'info');
+    setStatus('ready', resp.description);
+    if (resp.size) {
+      document.getElementById('imageInfoOverlay').textContent = resp.size;
+      document.getElementById('imageInfo').innerHTML =
+        document.getElementById('imageInfo').innerHTML.replace(/尺寸: \d+x\d+/, '尺寸: ' + resp.size);
+    }
+  } else {
+    toast('❌ ' + resp.error, 'error');
+    setStatus('ready', '操作失败');
+  }
+}
+
+async function toolResize() {
+  const w = document.getElementById('resizeW').value;
+  const h = document.getElementById('resizeH').value;
+  if (!w && !h) { toast('请输入宽度或高度', 'error'); return; }
+  setStatus('processing', 'resize');
+  const resp = await fetch('/api/toolbar', {
+    method: 'POST', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({action: 'resize', width: w || null, height: h || null})
+  }).then(r => r.json());
+  if (resp.success) {
+    document.getElementById('mainImage').src = resp.preview;
+    document.getElementById('imageInfoOverlay').textContent = resp.size;
+    document.getElementById('resizeW').value = '';
+    document.getElementById('resizeH').value = '';
+    toast('✅ ' + resp.description, 'info');
+    setStatus('ready', resp.description);
+  } else {
+    toast('❌ ' + resp.error, 'error');
+    setStatus('ready', '缩放失败');
+  }
+}
+
+async function saveImage() {
+  const path = prompt('保存路径:', 'output.jpg') || 'output.jpg';
+  const resp = await fetch('/api/save', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({path: path})
+  }).then(r=>r.json());
+  toast(resp.success ? `💾 已保存到 ${resp.path}` : '❌ ' + resp.error, resp.success ? 'success' : 'error');
+}
+
+// ====== 辅助 ======
+function updateHistory(items) {
+  const el = document.getElementById('historyList');
+  if (!items || !items.length) {
+    el.innerHTML = '<div style="color:#666;font-size:12px">暂无操作记录</div>';
+    return;
+  }
+  el.innerHTML = items.map((item, i) =>
+    `<div class="history-item">${i+1}. ${item}</div>`
+  ).join('');
+  el.scrollTop = el.scrollHeight;
+}
+
+function resetSliders() {
+  ['brightSlider','contrastSlider','saturSlider'].forEach(id => {
+    document.getElementById(id).value = 0;
+  });
+  ['brightVal','contrastVal','saturVal'].forEach(id => {
+    document.getElementById(id).textContent = '0';
+  });
+}
+
+function setStatus(state, msg) {
+  const dot = document.getElementById('statusDot');
+  dot.className = 'dot' + (state === 'processing' ? ' processing' : '');
+  document.getElementById('statusText').textContent = msg;
+}
+
+function toast(msg, type) {
+  const el = document.getElementById('toast');
+  el.textContent = msg; el.className = `toast ${type} show`;
+  clearTimeout(el._timeout);
+  el._timeout = setTimeout(() => el.classList.remove('show'), 2500);
+}
+
+// 快捷键
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'z') { e.preventDefault(); undo(); }
+  if ((e.ctrlKey || e.metaKey) && e.key === 'y') { e.preventDefault(); redo(); }
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); saveImage(); }
+});
+</script>
+</body>
+</html>

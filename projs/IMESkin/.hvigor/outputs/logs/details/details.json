@@ -1,0 +1,41 @@
+{
+  "HVIGOR": {
+    "IS_INCREMENTAL": true,
+    "IS_DAEMON": true,
+    "IS_PARALLEL": true,
+    "IS_HVIGORFILE_TYPE_CHECK": false,
+    "IS_EXECUTION_OHPM_BY_HVIGOR": false,
+    "BUILD_ANALYSIS_MODE": "normal",
+    "TASK_TIME": {},
+    "CUSTOM_TASK_TIME": {},
+    "CUSTOM_PLUGIN_TIME": {},
+    "APIS": [],
+    "CONFIG_EXPERIMENT": {
+      "ENABLE_MODULE_SKIP": false,
+      "ENABLE_CPP_FUNCTION_LEVEL_INCREMENTAL": false
+    },
+    "CONFIG_PROPERTIES": {},
+    "TOTAL_TIME": 14296750,
+    "BUILD_ID": "202606081922194460",
+    "ERROR_MESSAGE": [
+      {
+        "CODE": "00303168",
+        "MESSAGE": "SDK component missing.",
+        "SOLUTIONS": [
+          "Please verify the integrity of your SDK.",
+          "Please update the SDK at the download link below."
+        ],
+        "MORE_INFO": {
+          "cn": "https://developer.huawei.com/consumer/cn/download",
+          "en": "https://developer.huawei.com/consumer/en/download"
+        },
+        "TIMESTAMP": "1780917739458"
+      },
+      {
+        "CODE": "00303168",
+        "STACK": "00303168 Configuration Error\n...",
+        "PROJECT_CONFIG": {}
+      }
+    ]
+  }
+}
